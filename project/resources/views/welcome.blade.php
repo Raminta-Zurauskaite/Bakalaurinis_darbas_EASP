@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>Laravel</title>
 
         <!-- Fonts -->
@@ -62,6 +62,8 @@
                 margin-bottom: 30px;
             }
         </style>
+
+        
     </head>
     <body>
         <div class="flex-center position-ref full-height">
@@ -79,15 +81,44 @@
                 </div>
             @endif
 
+            
+
             <div class="content">
                 <div class="title m-b-md">
                 Eksploatacinio atsparumo šalčiui skaičiuoklė
                 </div>
 
-                <div class="links">
-                    TBA
+                
+                    <div id = 'msg'>
+                        Result that changes
+                    </div>
+                    <?php
+                        echo Form::button('Calculate',['onClick'=>'getMessage()']);
+                    ?>
                 </div>
             </div>
         </div>
+        <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
+        </script>
+      
+      
+      <script>
+         function getMessage() {
+            $.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
+            $.ajax({
+               
+               type:'POST',
+               url:'/getmsg',
+               data:'_token = <?php echo csrf_token() ?>',
+               success:function(data) {
+                  $("#msg").html(data.msg);
+               }
+            });
+         }
+      </script>
     </body>
 </html>
