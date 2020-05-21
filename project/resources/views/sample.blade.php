@@ -46,16 +46,19 @@
                     <label for="h2"><h3>h2 cm:</h3></label>
                     <input id="tai4" type="text" name="h2" disabled="disabled"/>
                 </div>
-                <button type="submit" class="btn btn-primary"  style="margin-bottom: 20px">
-                    Skaičiuoti kitą bandinį
-                </button>
+                
 
                 <div id = 'msg'>
                         Atsakymas
                     </div>
                     <?php
-                        echo Form::button('Calculate',['onClick'=>'getMessage()']);
+                        echo Form::button('Calculate',['onClick'=>'getMessage()', 'class' => 'btn btn-primary', 'style' => "margin-bottom: 20px"]);
                     ?>
+                    <div>
+                    <button type="submit" class="btn btn-primary"  style="margin-bottom: 20px">
+                    Siųstis skaičiavimo ataskaitą
+                </button>
+</div>
 
 <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
         </script>
@@ -65,6 +68,7 @@
         $(document).ready(function(){
             $("#taisyklinga").change(function(){
                 if($(this).prop("checked")){
+                    $('#net').val('');
                     $("#net").attr("disabled",true);
                     $("#tai1").attr("disabled",false);
                     $("#tai2").attr("disabled",false);
@@ -72,6 +76,10 @@
                     $("#tai4").attr("disabled",false);
                 }
                 else{
+                    $('#tai1').val('');
+                    $('#tai2').val('');
+                    $('#tai3').val('');
+                    $('#tai4').val('');
                     $("#tai1").attr("disabled",true);
                     $("#tai2").attr("disabled",true);
                     $("#tai3").attr("disabled",true);
