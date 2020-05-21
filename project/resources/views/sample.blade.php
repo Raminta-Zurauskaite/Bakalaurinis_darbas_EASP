@@ -15,56 +15,32 @@
                     @csrf
                     <label for="m0"><h3>m0 g:</h3></label>
                     <input type="text" name="m0"/>
-                </div>
-                <div class="form-group">
                     <label for="m1"><h3>m1 g:</h3></label>
                     <input type="text" name="m1"/>
-                </div>
-                <div class="form-group">
                     <label for="m2"><h3>m2 g:</h3></label>
                     <input type="text" name="m2"/>
-                </div>
-                <div class="form-group">
                     <label for="m3"><h3>m3 g:</h3></label>
                     <input type="text" name="m3"/>
-                </div>
-                <div class="form-group">
                     <label for="m4"><h3>m4 g:</h3></label>
                     <input type="text" name="m4"/>
-                </div>
-                <div class="form-group">
                     <label for="m5"><h3>m5 g:</h3></label>
                     <input type="text" name="m5"/>
-                </div>
-                <div class="form-group">
                     <label for="m6"><h3>m6 g:</h3></label>
                     <input type="text" name="m6"/>
-                </div>
-                <div class="form-group">
+                    <label for="hmin"><h3>hmin mm:</h3></label>
+                    <input type="text" name="hmin"/>
                     <label for="hmax"><h3>hmax mm:</h3></label>
                     <input type="text" name="hmax"/>
-                </div>
-                <div class="form-group">
                     <label for="aa"><h3>aa cm:</h3></label>
                     <input type="text" name="aa"/>
-                </div>
-                <div class="form-group">
                     <label for="av"><h3>av cm:</h3></label>
                     <input type="text" name="av"/>
-                </div>
-                <div class="form-group">
                     <label for="ba"><h3>ba cm:</h3></label>
                     <input type="text" name="ba"/>
-                </div>
-                <div class="form-group">
                     <label for="bv"><h3>bv cm:</h3></label>
                     <input type="text" name="bv"/>
-                </div>
-                <div class="form-group">
                     <label for="h1"><h3>h1 cm:</h3></label>
                     <input type="text" name="h1"/>
-                </div>
-                <div class="form-group">
                     <label for="h2"><h3>h2 cm:</h3></label>
                     <input type="text" name="h2"/>
                 </div>
@@ -98,7 +74,6 @@
             $.ajax({
                
                 
-
                type:'POST',
                url:'/getmsg',
                data:{_token: $('#signup-token').val(), result: json_kodas},

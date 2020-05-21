@@ -15,6 +15,11 @@ class CreateExperimentsTable extends Migration
     {
         Schema::create('experiments', function (Blueprint $table) {
             $table->id();
+            $table->datalt();
+            $table->partijoszy();
+            $table->sudetis();
+            $table->degimotemp();
+            $table->islaikymot();
             $table->timestamps();
         });
     }
