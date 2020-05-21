@@ -9,7 +9,6 @@ use App\Http\Controllers\Controller;
 class CalculateController extends Controller
 {
     public function index(){
-        $msg = "Veikia";
-        return response()->json(array('msg'=> $msg), 200);
+        return response()->json(array('msg'=> $result), 200);
     }
 }

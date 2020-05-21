@@ -85,6 +85,11 @@
       
       <script>
          function getMessage() {
+
+            var r1 = $('input[name=m1]').val();
+                var r2 = $('input[name=m2]').val();
+                var json_kodas =r1 + r2 ;
+
             $.ajaxSetup({
                 headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -92,9 +97,11 @@
             });
             $.ajax({
                
+                
+
                type:'POST',
                url:'/getmsg',
-               data: JSON.stringify({expression: "testexpression"}),
+               data:{_token: $('#signup-token').val(), result: json_kodas},
                success:function(data) {
 
                   $("#msg").html(data.msg);

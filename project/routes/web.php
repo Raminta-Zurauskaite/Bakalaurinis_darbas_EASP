@@ -24,7 +24,9 @@ Route::get('/experiment', array('as' => 'experiment', function() {
     return view('sample');
  }));
 
+ Route::get('/sample/create', 'CalculateController@store');
+
 Route::get('ajax',function() {
-    return view('welcome');
+    return view('sample');
  });
 Route::post('/getmsg','CalculateController@index');
