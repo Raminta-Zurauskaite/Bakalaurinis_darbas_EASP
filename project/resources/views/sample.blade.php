@@ -94,8 +94,9 @@
                
                type:'POST',
                url:'/getmsg',
-               data:'_token = <?php echo csrf_token() ?>',
+               data: JSON.stringify({expression: "testexpression"}),
                success:function(data) {
+
                   $("#msg").html(data.msg);
                }
             });
