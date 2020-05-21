@@ -16,9 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/experiment',function() {
+Route::get('/experiment', array('as' => 'experiment', function() {
     return view('experiment');
- });
+ }));
+
+ Route::get('/sample', array('as' => 'sample', function() {
+    return view('sample');
+ }));
 
 Route::get('ajax',function() {
     return view('welcome');

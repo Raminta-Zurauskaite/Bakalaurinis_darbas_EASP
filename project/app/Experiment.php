@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Experiment extends Model
 {
     protected $fillable = [
-        'data',
+        'datalt',
         'partijoszy',
         'sudetis',
         'degimotemp',
