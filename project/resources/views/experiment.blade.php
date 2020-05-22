@@ -14,23 +14,23 @@
                 <div class="form-group">
                     @csrf
                     <label for="datalt"><h3>Data:</h3></label>
-                    <input type="text" name="datalt"/>
+                    <input type="text" name="datalt" required/>
                 </div>
                 <div class="form-group">
                     <label for="partijoszy"><h3>Bandynių partijos žymuo:</h3></label>
-                    <input type="text" name="partijoszy"/>
+                    <input type="text" name="partijoszy" required/>
                 </div>
                 <div class="form-group">
                     <label for="sudetis"><h3>Bandynių sudėtis:</h3></label>
-                    <input type="text" name="sudetis"/>
+                    <input type="text" name="sudetis" required/>
                 </div>
                 <div class="form-group">
                     <label for="degimotemp"><h3>Bandynio degimo temperatūra</h3></label>
-                    <input type="text" name="degimotemp" />
+                    <input type="text" name="degimotemp" required/>
                 </div>
                 <div class="form-group">
                     <label for="islaikymot"><h3>Bandinių išlaikymo trukmė aukščiausioje degimo temperatūroje:</h3></label>
-                    <input type="text" class="form-control exp_input" name="islaikymot" value="{{old('islaikymot')}}"/>
+                    <input type="text" name="islaikymot"  required/>
                 </div>
                 <button type="submit" class="btn btn-primary"  style="margin-bottom: 20px">
                     Pradėti bandinių apskaičiavimus

@@ -15,52 +15,52 @@
                     @csrf
                     <span class="nowrap"><h3><label for="taisyklinga">Taisyklinga forma?:</label>
                     <input id="taisyklinga" type="checkbox" name="taisyklinga"/></h3></span>
-                    <label for="m0"><h3>m0 g:</h3></label>
+                    <label for="m0"><h3>Sausojo bandinio masė m0 g:</h3></label>
                     <input  type="text" name="m0"/>
-                    <label for="m1"><h3>m1 g:</h3></label>
+                    <label for="m1"><h3>Normaliosiomis sąlygomis įmirkusio bandinio masė m1 g:</h3></label>
                     <input type="text" name="m1"/>
-                    <label for="m2"><h3>m2 g:</h3></label>
+                    <label for="m2"><h3>Normaliosiomis sąlygomis įsotinto kapiliarinio pasiurbimo būdu bandinio masė m2 g:</h3></label>
                     <input type="text" name="m2"/>
-                    <label for="m3"><h3>m3 g:</h3></label>
+                    <label for="m3"><h3>Įsotinto vakuume bandinio masė vandenyje m3 g:</h3></label>
                     <input id="net" type="text" name="m3"/>
-                    <label for="m4"><h3>m4 g:</h3></label>
+                    <label for="m4"><h3>Įsotinto vakuume bandinio masė ore m4 g:</h3></label>
                     <input type="text" name="m4"/>
-                    <label for="m5"><h3>m5 g:</h3></label>
+                    <label for="m5"><h3>Vakuume įsotinto kapiliarinio pasiurbimo būdu bandinio masė, kai sotinimas vyksta per tą plokštumą, kuri eksploatuojant būtų šaldoma m5 g:</h3></label>
                     <input type="text" name="m5"/>
-                    <label for="m6"><h3>m6 g:</h3></label>
+                    <label for="m6"><h3>Vakuume įsotinto kapiliarinio pasiurbimo būdu bandinio masė, kai sotinimas vyksta per tą plokštumą, kuri eksploatuojant būtų statmena šaldomai plokštumai m6 g:</h3></label>
                     <input type="text" name="m6"/>
-                    <label for="hmin"><h3>hmin mm:</h3></label>
+                    <label for="hmin"><h3>Mažiausia kapiliarinio pakilimo pagal sudrėkimo frontą vertė hmin mm:</h3></label>
                     <input type="text" name="hmin"/>
-                    <label for="hmax"><h3>hmax mm:</h3></label>
+                    <label for="hmax"><h3>Didžiausia kapiliarinio pakilimo pagal sudrėkimo frontą vertė hmax mm:</h3></label>
                     <input type="text" name="hmax"/>
-                    <label for="aa"><h3>aa cm:</h3></label>
+                    <label for="aa"><h3>Bandinio apatinės plokštumos plotis aa cm:</h3></label>
                     <input type="text" name="aa"/>
-                    <label for="av"><h3>av cm:</h3></label>
+                    <label for="av"><h3>Bandinio viršutinės plokštumos plotis av cm:</h3></label>
                     <input id="tai1" type="text" name="av" disabled="disabled"/>
-                    <label for="ba"><h3>ba cm:</h3></label>
+                    <label for="ba"><h3>Bandinio apatinės plokštumos storis ba cm:</h3></label>
                     <input type="text" name="ba"/>
-                    <label for="bv"><h3>bv cm:</h3></label>
+                    <label for="bv"><h3>Bandinio viršutinės plokštumos storis bv cm:</h3></label>
                     <input id="tai2" type="text" name="bv" disabled="disabled"/>
-                    <label for="h1"><h3>h1 cm:</h3></label>
+                    <label for="h1"><h3>Bandinio aukštis (pamatuojamas vienas matmuo) h1 cm:</h3></label>
                     <input id="tai3" type="text" name="h1" disabled="disabled"/>
-                    <label for="h2"><h3>h2 cm:</h3></label>
+                    <label for="h2"><h3>Bandinio aukštis, (pamatuojamas antras matmuo kitoje bandinio pusėje) h2 cm:</h3></label>
                     <input id="tai4" type="text" name="h2" disabled="disabled"/>
                 </div>
                 
 
                 
                     <?php
-                        echo Form::button('Calculate',['onClick'=>'getMessage()', 'class' => 'btn btn-primary', 'style' => "margin-bottom: 20px"]);
+                        echo Form::button('Calculate',['onClick'=>'getMessage()', 'class' => 'btn btn-danger', 'style' => "margin-bottom: 20px"]);
                     ?>
                     <div>
                     <div id = 'msg'>
-                        Atsakymas
+                        Skaičiavimo rezultatai: 
                     </div>
                    <!-- <button onclick="export_pdf()" class="btn btn-primary"  style="margin-bottom: 20px">
                     Siųstis skaičiavimo ataskaitą
                 </button> -->
                 <div>
-    <p><a href='/export_pdf' class="btn btn-danger">{{ __('Download pdf') }}</a></p>
+    <p><a href='/export_pdf' class="btn btn-danger">{{ __('Parsisiųsti pdf') }}</a></p>
     </div>
 </div>
 
@@ -163,7 +163,7 @@
 
                 var t = (Math.E**(3.31981+(0.00524*Fre)));
 
-                var json_kodas = 'S: ' + S.toFixed(2) + ' V: ' + V.toFixed(2) + ' We: ' + We.toFixed(2) + ' Wr: ' + Wr.toFixed(2) + ' N: ' + N.toFixed(2) + ' R: ' + R.toFixed(2) + ' D: ' + D.toFixed(2) + ' g1: ' + g1.toFixed(2);
+                var json_kodas = 'Skaičiavimo rezultatai:  S: ' + S.toFixed(2) + ' V: ' + V.toFixed(2) + ' We: ' + We.toFixed(2) + ' Wr: ' + Wr.toFixed(2) + ' N: ' + N.toFixed(2) + ' R: ' + R.toFixed(2) + ' D: ' + D.toFixed(2) + ' g1: ' + g1.toFixed(2);
                 json_kodas = json_kodas + ' G1: ' + G1.toFixed(2) + ' G2: ' + G2.toFixed(2) + ' Fre1 arba Fre3: ' + Fre.toFixed(0) + ' Fre2 arba Fre4: ' + Free.toFixed(0) + ' t: ' + t.toFixed(0);
 
             $.ajaxSetup({
