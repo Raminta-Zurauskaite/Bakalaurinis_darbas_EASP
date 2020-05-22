@@ -30,3 +30,5 @@ Route::get('ajax',function() {
     return view('sample');
  });
 Route::post('/getmsg','CalculateController@index');
+
+Route::get('/export_pdf','CalculateController@export_pdf');

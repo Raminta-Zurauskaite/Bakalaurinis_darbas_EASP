@@ -56,9 +56,12 @@
                     <div id = 'msg'>
                         Atsakymas
                     </div>
-                    <button type="submit" class="btn btn-primary"  style="margin-bottom: 20px">
+                   <!-- <button onclick="export_pdf()" class="btn btn-primary"  style="margin-bottom: 20px">
                     Siųstis skaičiavimo ataskaitą
-                </button>
+                </button> -->
+                <div>
+    <p><a href='/export_pdf' class="btn btn-danger">{{ __('Download pdf') }}</a></p>
+    </div>
 </div>
 
 <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
@@ -89,6 +92,15 @@
                 }
             });
         });
+    </script>
+
+    <script>
+        function export_pdf()
+    {
+        $pdf = App::make('dompdf.wrapper');
+        $pdf->loadHTML('<h1>Test</h1>');
+        return $pdf->download('skaiciavimai.pdf');
+    }
     </script>
       
       <script>
