@@ -95,42 +95,64 @@
          function getMessage() {
                 
                 var r0 = $('input[name=taisyklinga]').val();
-                var r1 = $('input[name=m0]').val();
-                var r2 = $('input[name=m1]').val();
-                var r3 = $('input[name=m2]').val();
-                var r4 = $('input[name=m3]').val();
-                var r5 = $('input[name=m4]').val();
-                var r6 = $('input[name=m5]').val();
-                var r7 = $('input[name=m6]').val();
-                var r8 = $('input[name=hmin]').val();
-                var r9 = $('input[name=hmax]').val();
-                var r10 = $('input[name=aa]').val();
-                var r11 = $('input[name=av]').val();
-                var r12 = $('input[name=ba]').val();
-                var r13 = $('input[name=bv]').val();
-                var r14 = $('input[name=h1]').val();
-                var r15 = $('input[name=h2]').val();
+                var m0 = $('input[name=m0]').val();
+                var m1 = $('input[name=m1]').val();
+                var m2 = $('input[name=m2]').val();
+                var m3 = $('input[name=m3]').val();
+                var m4 = $('input[name=m4]').val();
+                var m5 = $('input[name=m5]').val();
+                var m6 = $('input[name=m6]').val();
+                var hmin = $('input[name=hmin]').val();
+                var hmax = $('input[name=hmax]').val();
+                var aa = $('input[name=aa]').val();
+                var av = $('input[name=av]').val();
+                var ba = $('input[name=ba]').val();
+                var bv = $('input[name=bv]').val();
+                var h1 = $('input[name=h1]').val();
+                var h2 = $('input[name=h2]').val();
 
-                var S = r10 * r12;
+                var S = aa * ba;
                 if ($(taisyklinga).prop("checked") ){
-                    var V = (((r10/1+r11/1)/2)*((r12/1+r13/1)/2)*((r14/1+r15/1)/2));
+                    var V = (((aa/1+av/1)/2)*((ba/1+bv/1)/2)*((h1/1+h2/1)/2));
                 }
                 else {
                     var vand_tankis = 1;
-                    var V = (r5-r4)/vand_tankis;
+                    var V = (m4-m3)/vand_tankis;
                 }
 
-                var We = (r1/V) * ((r2-r1)/r1) * 100;
+                var We = (m0/V) * ((m1-m0)/m0) * 100;
 
-                var Wr = (r1/V) * ((r5-r1)/r1) * 100;
+                var Wr = (m0/V) * ((m4-m0)/m0) * 100;
 
-                var N = ((r9-r8)/r8);
+                var N = ((hmax-hmin)/hmin);
 
                 var R = (1-(We/Wr))*100;
 
+                var D = ((100-Wr)/Wr);
 
+                var g1 = ((m2-m0)/S);
 
-                var json_kodas = N;
+                var G1 = ((m5-m0)/S);
+
+                var G2 = ((m6-m0)/S);
+
+                if (We <= 26){
+                    var Fre1 = (0.231*(((R**1.068)*(D**1.345)*(G1**0.275)*(G2**0.663))/((N**0.285)*(g1**0.830))));
+                    var Fre2 = (0.231*(((R**1.465)*(D**0.759)*(G1**0.383)*(G2**0.852))/((N**0.168)*(g1**1.034))));
+                    var Fre = Fre1;
+                    var Free = Fre2;
+                }
+                else {
+                    var Fre3 = (0.051*(((R**1.642)*(D**2.332)*(G1**0.383)*(g1**0.852))/((N**0.334)*(G2**1.145))));
+                    var Fre4 = (0.063*(((R**1.813)*(D**2.135)*(G1**0.179)*(g1**1.134))/((N**0.395)*(G2**0.517))));
+                    var Fre = Fre3;
+                    var Free = Fre4;
+                }
+
+                var t = (Math.E**(3.31981+(0.00524*Fre)));
+
+                var json_kodas = 'S: ' + S.toFixed(2) + ' V: ' + V.toFixed(2) + ' We: ' + We.toFixed(2) + ' Wr: ' + Wr.toFixed(2) + ' N: ' + N.toFixed(2) + ' R: ' + R.toFixed(2) + ' D: ' + D.toFixed(2) + ' g1: ' + g1.toFixed(2);
+                json_kodas = json_kodas + ' G1: ' + G1.toFixed(2) + ' G2: ' + G2.toFixed(2) + ' Fre1 arba Fre3: ' + Fre.toFixed(0) + ' Fre2 arba Fre4: ' + Free.toFixed(0) + ' t: ' + t.toFixed(0);
 
             $.ajaxSetup({
                 headers: {
