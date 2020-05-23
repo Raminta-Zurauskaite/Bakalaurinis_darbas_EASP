@@ -1,5 +1,11 @@
-<h3> Duomenys: </h3><br>
+<h3>Eksperiment duomenys: </h3><br>
+Data: 2020-01-01<br>
+Bandynių partijos žymuo: CW0<br>
+Bandynių sudėtis: Molis<br>
+Bandynio degimo temperatūra: 1000 Celsius<br>
+Bandinių išlaikymo trukmė aukščiausioje degimo temperatūroje: 1 h<br>
 
+<h3> Duomenys: </h3><br>
 Forma: taisyklinga <br>
 m0 g: 532.47 <br>
 m1 g: 588.72 <br>

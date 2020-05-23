@@ -50,7 +50,7 @@
 
                 
                     <?php
-                        echo Form::button('Calculate',['onClick'=>'getMessage()', 'class' => 'btn btn-danger', 'style' => "margin-bottom: 20px"]);
+                        echo Form::button('Skaičiuoti',['onClick'=>'getMessage()', 'class' => 'btn btn-danger', 'style' => "margin-bottom: 20px"]);
                     ?>
                     <div>
                     <div id = 'msg'>
@@ -97,9 +97,11 @@
     <script>
         function export_pdf()
     {
-        $pdf = App::make('dompdf.wrapper');
-        $pdf->loadHTML('<h1>Test</h1>');
-        return $pdf->download('skaiciavimai.pdf');
+        require_once __DIR__ . '/vendor/autoload.php';
+
+$mpdf = new \Mpdf\Mpdf();
+$mpdf->WriteHTML('<h1>Hello world!</h1>');
+$mpdf->Output()
     }
     </script>
       
